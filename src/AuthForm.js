@@ -37,7 +37,8 @@ function AuthForm() {
       //navigate("/home");
       console.log(result); // Response from the backend
     } catch (error) {
-      console.error('Error:', error);
+      console.error('Error:', error); 
+      
       alert('Failed to submit the form');
     }
   };
