@@ -1,11 +1,15 @@
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
-import Home from "./Home";
 import { useNavigate } from "react-router-dom";
+
+// import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
+// import Home from "./Home";
+// import { useNavigate } from "react-router-dom";
 
 
 function AuthForm() {
   const [formData, setFormData] = useState({ email: '', password: '' });
+  const navigate = useNavigate(); // ✅ Correct usage here!
+
     const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({
@@ -15,17 +19,22 @@ function AuthForm() {
   };    
 
   const handleSubmit = async (e) => {
-    console.log('email is: ' , formData.email);
-    console.log('password is: ' , formData.password);
+
     e.preventDefault(); // Prevent default form submission behavior
     try {
-      const response = await fetch('http://localhost:8080/users/login', {
+      const response = await fetch('http://localhost:8089/users/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(formData),
       });
+      if (response.status === 200) {
+        //setData(response.data);
+        
+        // Navigate to another page (e.g., '/dashboard')
+        navigate("/home");
+      }
 
       if (!response.ok) {
         throw new Error('Failed to submit form');

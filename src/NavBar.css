@@ -1,0 +1,64 @@
+/* NavBar.css */
+* {
+    box-sizing: border-box; /* ensures padding doesn't cause overflow */
+  }
+  
+  body {
+    margin: 0;
+    padding: 0;
+  }
+  
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    background-color: #222;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+    z-index: 1000;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    overflow-x: hidden; /* optional safeguard */
+  }
+  
+  .logo {
+    font-size: 2rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    white-space: nowrap;
+  }
+  
+  .nav-links {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .nav-links li a {
+    font-size: 1.2rem;
+    text-decoration: none;
+    color: white;
+    transition: color 0.3s, transform 0.2s;
+  }
+  
+  .nav-links li a:hover {
+    color: #facc15;
+    transform: scale(1.05);
+  }
+  
+  .heading {
+    position: absolute;
+    box-sizing: border-box;
+    top: 15%;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    align-self: center;
+  }
