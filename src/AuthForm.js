@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
 
 // import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
@@ -8,7 +8,14 @@ import { useNavigate } from "react-router-dom";
 
 function AuthForm() {
   const [formData, setFormData] = useState({ email: '', password: '' });
-  const navigate = useNavigate(); // ✅ Correct usage here!
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const token = localStorage.getItem('authToken');
+    if (token && token !== 'null' && token !== '') {
+      navigate('/home'); // Redirect to home
+    }
+  }, [navigate]);
 
     const handleChange = (e) => {
     const { name, value } = e.target;
@@ -30,6 +37,9 @@ function AuthForm() {
         body: JSON.stringify(formData),
       });
       if (response.status === 200) {
+        const data = await response.json(); // Parse response body as JSON
+        const token = data.token; // Access the token field
+        localStorage.setItem('authToken', token);
         //setData(response.data);
         
         // Navigate to another page (e.g., '/dashboard')

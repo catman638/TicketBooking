@@ -3,6 +3,7 @@ import './App.css';
 import AuthForm from './AuthForm';
 import Home from './Home';
 import About from './About';
+import Logout from './Logout';
 import Services from './Services.js';
 import Contact from './Contact';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
@@ -23,6 +24,7 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/services" element={<Services />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/logout" element={<Logout />} />
 
       </Routes>
     </Router>
