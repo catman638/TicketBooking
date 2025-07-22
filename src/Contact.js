@@ -9,7 +9,7 @@ function Contact() {
       <NavBar />
       <div className="contact-container">
         <h1>Contact Us</h1>
-        <p>This is the contact page of our application.</p>
+        <p>Contact me at adityadahiya98@gmail.com, just not for refunds xD </p>
       </div>
       </div>
   );

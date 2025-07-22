@@ -9,7 +9,7 @@ function Services() {
       <NavBar />
       <div className="services-container">
         <h1>Services</h1>
-        <p>This is the about page of our application.</p>
+        <p>As of now, only booking tickets and viewing them. Book at your risk cuz I haven't implemented the refunds feature yet xD</p>
       </div>
       </div>
   );

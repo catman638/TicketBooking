@@ -7,6 +7,8 @@ import Logout from './Logout';
 import Services from './Services.js';
 import Contact from './Contact';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import ProtectedRoute from './ProtectedRoute';
+
 
 
 function App() {
@@ -20,11 +22,23 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<AuthForm />} />
-        <Route path="/home" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/services" element={<Services />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/logout" element={<Logout />} />
+        <Route path="/home" element={
+          <ProtectedRoute>
+        <Home />
+      </ProtectedRoute>} />
+        <Route path="/about" element={
+          <ProtectedRoute>
+        <About />
+      </ProtectedRoute>} />
+        <Route path="/services" element={<ProtectedRoute>
+        <Services />
+      </ProtectedRoute>} />
+        <Route path="/contact" element={<ProtectedRoute>
+        <Contact />
+      </ProtectedRoute>} />
+        <Route path="/logout" element={<ProtectedRoute>
+        <Logout />
+      </ProtectedRoute>} />
 
       </Routes>
     </Router>

@@ -3,6 +3,8 @@ import './NavBar.css'; // Make sure to create this CSS file
 // import {logout} from './Logout'
 import { useNavigate } from 'react-router-dom';
 import Logout from './Logout';
+import CreditBalance from './CreditBalance';
+
 
 
 // const Logout = () => {
@@ -31,12 +33,13 @@ import Logout from './Logout';
 const NavBar = () => {
   return (
     <nav className="navbar">
-      <div className="logo">TicketBooking</div>
+      <div className="logo">TicketBooking.com</div>
       <ul className="nav-links">
+        <CreditBalance />
         <li><a href="/about">About Us</a></li>
         <li><a href="/services">Services</a></li>
         <li><a href="/contact">Contact</a></li>
-        <a href="/logout" >Logout</a>
+        <li><a href="/logout" >Logout</a></li>
       </ul>
     </nav>
   );

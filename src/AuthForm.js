@@ -50,11 +50,11 @@ function AuthForm() {
         throw new Error('Failed to submit form');
       }
 
-      const result = await response.json();
+      // const result = await response.json();
       alert('Form submitted successfully!');
       // Navigate();
       //navigate("/home");
-      console.log(result); // Response from the backend
+      // console.log(result); // Response from the backend
     } catch (error) {
       console.error('Error:', error); 
       

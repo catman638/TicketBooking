@@ -9,7 +9,9 @@ function About() {
       <NavBar />
       <div className="about-container">
         <h1>About Us</h1>
-        <p>This is the about page of our application.</p>
+        <p>Book from us and the maximum discounts.
+          Managed By Aditya ;)
+        </p>
       </div>
       </div>
   );
