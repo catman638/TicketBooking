@@ -33,7 +33,11 @@ import CreditBalance from './CreditBalance';
 const NavBar = () => {
   return (
     <nav className="navbar">
-      <div className="logo">TicketBooking.com</div>
+      <div className="logo">
+        <a href="/home" style={{ textDecoration: 'none', color: 'inherit' }}>
+    TicketBooking.com
+        </a>
+      </div>
       <ul className="nav-links">
         <CreditBalance />
         <li><a href="/about">About Us</a></li>

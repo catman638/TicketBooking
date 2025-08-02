@@ -1,0 +1,16 @@
+h2 {
+  font-size: 1.8rem;
+  text-align: center;
+}
+
+table {
+  font-size: 1.2rem;
+  width: 80%;
+  margin: 0 auto;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 15px;
+  text-align: left;
+}

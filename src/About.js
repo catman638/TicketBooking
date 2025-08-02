@@ -12,6 +12,7 @@ function About() {
         <p>Book from us and the maximum discounts.
           Managed By Aditya ;)
         </p>
+        
       </div>
       </div>
   );
