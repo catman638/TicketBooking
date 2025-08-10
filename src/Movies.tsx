@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './Movies.css';
+import { useNavigate } from 'react-router-dom'; // For navigation
+
 
 function MoviesTable() {
 
@@ -10,6 +12,8 @@ interface Movie {
   location: string; // optional if not all movies have it
 }
   const [movies, setMovies] = useState<Movie[]>([]);
+  const [selectedMovie, setSelectedMovie] = useState<Movie | null>(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetch('http://localhost:8089/movies/' , {
@@ -26,8 +30,20 @@ interface Movie {
       .catch((err) => console.error('Failed to fetch movies:', err));
   }, []);
 
+  const handleSelect = (movie: Movie) => {
+    setSelectedMovie(movie);
+  };
+
+  const handleCheckout = () => {
+    if (selectedMovie) {
+      // You can use navigate with state or query params
+      navigate('/payment', { state: { movie: selectedMovie } });
+    }
+  };
+
   return (
     <div>
+      <br />
       <h2>Movies List</h2>
       <table border={1} cellPadding="10" cellSpacing="0">
         <thead>
@@ -39,7 +55,12 @@ interface Movie {
         </thead>
         <tbody>
           {movies.map((movie) => (
-            <tr key={movie.movie_id}>
+            <tr key={movie.movie_id} 
+            onClick={() => handleSelect(movie)}
+              style={{
+                cursor: 'pointer',
+                backgroundColor: selectedMovie?.movie_id === movie.movie_id ? '#c0e2ff' : 'white',
+              }}>
               <td>{movie.movie_name}</td>
               <td>{movie.price}</td>
               <td>{movie.location}</td>
@@ -47,6 +68,11 @@ interface Movie {
           ))}
         </tbody>
       </table>
+      {selectedMovie && (
+        <div style={{ marginTop: '20px', marginLeft: '800px' }}>
+          <button onClick={handleCheckout}>Checkout</button>
+        </div>
+      )}
     </div>
   );
 }
