@@ -23,7 +23,7 @@ const handleBuy = async () => {
     const data = await response.json();
 
     if (!response.ok) {
-      throw new Error(data.error || 'Purchase failed.');
+      throw new Error(data.error || data.bought || 'Purchase failed.');
     }
 
     console.log('Parsed response:', data);
